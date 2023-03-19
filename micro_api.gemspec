@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.test_files = Dir["spec/**/*"]
 
   spec.add_development_dependency "rspec-rails"
+  spec.add_development_dependency "rubocop"
 
   spec.add_dependency "rails", ">= 7.0.4.3"
 end
