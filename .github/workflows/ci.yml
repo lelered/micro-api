@@ -37,3 +37,48 @@ jobs:
 
       - run: bundle exec rspec
       - run: bundle exec rubocop
+
+
+  release-please:
+    if: github.ref == 'refs/heads/main'
+    needs: [ ci-test ]
+    
+    runs-on: ubuntu-latest
+
+    env:
+      # Package or Ruby Gem's name.
+      GEM_NAME: ${{ github.event.repository.name }} # "micro_api"
+      # API Key from Rubygems.org
+      RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: ruby
+          package-name: ${{ env.GEM_NAME }}
+          version-file: "lib/${{ env.GEM_NAME }}/version.rb"
+          bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
+
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v2
+      
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      - if: ${{ steps.release.outputs.release_created }}
+        name: Release Gem
+        run: |
+          gem install bundler
+          bundle config unset deployment
+          bundle install
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push *.gem
