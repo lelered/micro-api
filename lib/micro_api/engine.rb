@@ -12,6 +12,5 @@ module MicroApi
         routing_specs:    true,
         view_specs:       false
     end
-
   end
 end

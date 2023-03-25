@@ -12,5 +12,10 @@ module MicroApi
         itag: ENV.fetch("IMAGE_TAG", nil),                    # image tag
       }
     end
+
+    def no_route_matches
+      exception = ActionController::RoutingError.new("No route matches [#{request.method}] #{request.path}")
+      render json: { error: exception.message }, status: :not_found
+    end
   end
 end

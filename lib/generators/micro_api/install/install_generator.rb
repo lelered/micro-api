@@ -4,7 +4,7 @@ module MicroApi
     source_root File.expand_path("templates", __dir__)
 
     argument :component, type: :string, default: 'all',
-                         banner: "all|application|initializer"
+                         banner: "all|application|initializer|route"
 
     def main
       method_name = "generate_micro_api_#{component}"
@@ -37,6 +37,12 @@ module MicroApi
     desc "This generator creates an initializer file at config/initializers"
     def generate_micro_api_initializer
       template "micro_api.rb", "#{Rails.root}/config/initializers/micro_api.rb"
+    end
+
+    desc "This generator add row in routes.rb file"
+    def generate_micro_api_route
+      route "mount MicroApi::Engine, at: MicroApi.routes_path, as: '#{MicroApi.routes_path}'"
+      route "match '*path', to: 'micro_api/static#no_route_matches', via: :all"
     end
   end
 end
