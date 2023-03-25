@@ -15,6 +15,7 @@ RSpec.describe MicroApi::InstallGenerator, type: :generator do
     described_class.start
     system "cd spec/dummy/ && bin/rails generate micro_api:install"
     expect(File.file?(config_file)).to be true
+    expect(File.file?(staging_env_file)).to be true
   end
 
   it 'installs config file properly routing', type: :routing do

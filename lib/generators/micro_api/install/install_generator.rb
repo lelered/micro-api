@@ -37,6 +37,7 @@ module MicroApi
     desc "This generator creates an initializer file at config/initializers"
     def generate_micro_api_initializer
       template "micro_api.rb", "#{Rails.root}/config/initializers/micro_api.rb"
+      template "staging.rb", "#{Rails.root}/config/environments/staging.rb"
     end
 
     desc "This generator add row in routes.rb file"

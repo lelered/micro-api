@@ -3,7 +3,6 @@ require "micro_api/engine"
 
 module MicroApi
   
-
   mattr_accessor :routes_path
   @@routes_path = "/mse"  
 
