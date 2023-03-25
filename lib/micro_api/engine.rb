@@ -13,12 +13,5 @@ module MicroApi
         view_specs:       false
     end
 
-    initializer "mse.processors" do |app|
-      if MicroApi.automount_routes
-        app.routes.append do
-          mount MicroApi::Engine, at: MicroApi.routes_path, as: "mse"
-        end
-      end
-    end
   end
 end
