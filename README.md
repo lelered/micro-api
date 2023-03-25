@@ -1,5 +1,5 @@
 # MicroApi
-Short description and motivation.
+This is a Rails plugin that would like to help the startup of rails applications oriented to microservices or, in general, application deployed on the cloud.
 
 ## Usage
 How to use my plugin.
@@ -13,7 +13,8 @@ gem "micro_api"
 
 And then execute:
 ```bash
-$ bundle
+bundle
+bundle exec rails generate micro_api:install
 ```
 
 Or install it yourself as:

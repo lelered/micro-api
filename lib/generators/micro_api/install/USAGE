@@ -1,8 +1,9 @@
 Description:
-    Explain the generator
+    Main installation generator.
 
 Example:
-    bin/rails generate install Thing
+    bin/rails generate micro_api:install
 
     This will create:
-        what/will/it/create
+        - config/initializers/micro_api.rb
+        - config/environments/staging.rb
