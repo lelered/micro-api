@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.1.1](https://github.com/lelered/micro_api/compare/v0.1.0...v0.1.1) (2023-03-25)
+
+
+### Features
+
+* application generator ([e523b92](https://github.com/lelered/micro_api/commit/e523b92fc578bd2d2880197c3b15da1722eaf1d3))
+* empty generator ([aff1d44](https://github.com/lelered/micro_api/commit/aff1d44840340b5bd74fd70adc031502f01a33bd))
+* generator install + automount_routes ([ad6f09c](https://github.com/lelered/micro_api/commit/ad6f09cd8bf698143b87ebc5daea8ba2cefbc09f))
+* intro no_route_matches action ([d2004cf](https://github.com/lelered/micro_api/commit/d2004cf7e292d28fa6d0135bb5e6928db3228931))
+* stagin environments config ([4d55f85](https://github.com/lelered/micro_api/commit/4d55f85c04f0a75d8510ff487ee69ef5289cb006))
+
+
+### Performance Improvements
+
+* improving ci github action ([cfa825c](https://github.com/lelered/micro_api/commit/cfa825ccfd3f3c75da14e02a27a407306b577bee))
+* removed automount_routes ([96f21f2](https://github.com/lelered/micro_api/commit/96f21f23ac7552e3336a4a993e5e6bd0a7a6fa44))
+
 ## 0.1.0 (2023-03-19)
 
 
