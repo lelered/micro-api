@@ -37,5 +37,7 @@ module Dummy
     config.api_only = true
 
     config.hosts << "www.example.com"
+
+    config.time_zone = "CET"
   end
 end

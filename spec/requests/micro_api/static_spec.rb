@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Statics", type: :request do
   describe "GET /healthz" do
     it "returns http success" do
-      get "/micro_api/healthz"
+      get "#{MicroApi.routes_path}/healthz"
       expect(response).to have_http_status(:success)
       expect(response.header['Content-Type']).to include 'application/json'
       expect(json).not_to be_empty
@@ -13,7 +13,7 @@ RSpec.describe "Statics", type: :request do
 
   describe "GET /version" do
     it "returns http success" do
-      get "/micro_api/version"
+      get "#{MicroApi.routes_path}/version"
       expect(response).to have_http_status(:success)
       expect(response.header['Content-Type']).to include 'application/json'
       expect(json).not_to be_empty
