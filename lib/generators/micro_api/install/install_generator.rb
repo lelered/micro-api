@@ -4,7 +4,7 @@ module MicroApi
     source_root File.expand_path("templates", __dir__)
 
     argument :component, type: :string, default: 'all',
-                         banner: "all|initializer"
+                         banner: "all|application|initializer"
 
     def main
       method_name = "generate_micro_api_#{component}"
@@ -26,6 +26,12 @@ module MicroApi
 
         send(method_name)
       end
+    end
+
+    desc "This generator add row in application.rb file"
+    def generate_micro_api_application
+      application 'config.active_record.default_timezone = :utc' if defined?(ActiveRecord)
+      application 'config.time_zone = "CET"'
     end
 
     desc "This generator creates an initializer file at config/initializers"
