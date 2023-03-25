@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "simplecov"
 
-  spec.add_dependency "rails", ">= 7.0.4.3"
+  spec.add_dependency "rails", ">= 6.0.0"
 end
