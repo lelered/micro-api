@@ -38,6 +38,6 @@ module Dummy
 
     config.hosts << "www.example.com"
 
-    config.time_zone = "CET"
+    config.time_zone = 'CET'
   end
 end

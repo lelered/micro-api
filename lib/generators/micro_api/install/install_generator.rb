@@ -48,7 +48,7 @@ module MicroApi
     desc "This generator add 'api namespace' rows in routes.rb file"
     def generate_micro_api_route_api_namespace
       inject_into_file 'config/routes.rb', before: "  # Defines the root path route" do
-        "  namespace :api, defaults: {format: :json} do\n  end\n\n"
+        "  namespace :api, defaults: { format: :json } do\n  end\n\n"
       end
     end
 
