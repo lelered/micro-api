@@ -30,8 +30,13 @@ module MicroApi
 
     desc "This generator add row in application.rb file"
     def generate_micro_api_application
-      application 'config.active_record.default_timezone = :utc' if defined?(ActiveRecord)
-      application 'config.time_zone = "CET"'
+      application_list = [ "\n" ]
+      application_list << "config.active_record.default_timezone = :utc" if defined?(ActiveRecord)
+      application_list << "config.time_zone = 'CET'"
+
+      inject_into_file 'config/application.rb', before: /\n  end$/ do
+        application_list.join("\n    ").gsub("    \n", "\n")
+      end
     end
 
     desc "This generator creates an initializer file at config/initializers"
@@ -40,10 +45,24 @@ module MicroApi
       template "staging.rb", "#{Rails.root}/config/environments/staging.rb"
     end
 
-    desc "This generator add row in routes.rb file"
-    def generate_micro_api_route
-      route "mount MicroApi::Engine, at: MicroApi.routes_path, as: '#{MicroApi.routes_path}'"
-      route "match '*path', to: 'micro_api/static#no_route_matches', via: :all"
+    desc "This generator add 'api namespace' rows in routes.rb file"
+    def generate_micro_api_route_api_namespace
+      inject_into_file 'config/routes.rb', before: "  # Defines the root path route" do
+        "  namespace :api, defaults: {format: :json} do\n  end\n\n"
+      end
+    end
+
+    desc "This generator add final rows in routes.rb file"
+    def generate_micro_api_route_last
+      routes_list = [
+        "\n",
+        "mount MicroApi::Engine, at: MicroApi.routes_path, as: '#{MicroApi.routes_path}'",
+        "match '*path', to: 'micro_api/static#no_route_matches', via: :all",
+      ]
+
+      inject_into_file 'config/routes.rb', before: /\nend$/ do
+        routes_list.join("\n  ").gsub("  \n", "\n")
+      end
     end
   end
 end
