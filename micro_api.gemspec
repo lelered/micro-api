@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 1.48"
   spec.add_development_dependency "simplecov"
 
+  spec.add_dependency "lograge"
   spec.add_dependency "rails", ">= 6.0.0"
 end

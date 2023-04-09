@@ -30,7 +30,7 @@ module MicroApi
 
     desc "This generator add row in application.rb file"
     def generate_micro_api_application
-      application_list = [ "\n" ]
+      application_list = ["\n"]
       application_list << "config.active_record.default_timezone = :utc" if defined?(ActiveRecord)
       application_list << "config.time_zone = 'CET'"
 
@@ -57,7 +57,7 @@ module MicroApi
       routes_list = [
         "\n",
         "mount MicroApi::Engine, at: MicroApi.routes_path, as: '#{MicroApi.routes_path}'",
-        "match '*path', to: 'micro_api/static#no_route_matches', via: :all",
+        "match '*path', to: 'micro_api/static#no_route_matches', via: :all"
       ]
 
       inject_into_file 'config/routes.rb', before: /\nend$/ do
