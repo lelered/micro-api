@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.2](https://github.com/lelered/micro_api/compare/v0.1.1...v0.1.2) (2023-04-09)
+
+
+### Features
+
+* **lograge:** introducing lograge ([0451502](https://github.com/lelered/micro_api/commit/0451502036ec5b5db58773db75653add3b54a23d))
+
+
+### Performance Improvements
+
+* set dependency gem version ([8651036](https://github.com/lelered/micro_api/commit/865103617f75e4f7bb70fbd64be0527c35bf5b8b))
+
 ## [0.1.1](https://github.com/lelered/micro_api/compare/v0.1.0...v0.1.1) (2023-03-25)
 
 
