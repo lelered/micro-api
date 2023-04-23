@@ -5,10 +5,12 @@ module MicroApi
     end
 
     def version
+      app_version = Rails.application.class::VERSION rescue nil
       render json: {
         ac:   Rails.application.class.to_s.split("::").first, # app code
         cenv: ENV.fetch("CLOUD_ENV", "local"),                # cloud env
         env:  Rails.env,                                      # rails env
+        av:   app_version,
         itag: ENV.fetch("IMAGE_TAG", nil),                    # image tag
       }
     end
