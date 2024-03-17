@@ -5,7 +5,6 @@ module MicroApi
     end
 
     def version
-      app_version = Rails.application.class::VERSION rescue nil
       render json: {
         ac:   Rails.application.class.to_s.split("::").first, # app code
         cenv: ENV.fetch("CLOUD_ENV", "local"),                # cloud env
@@ -18,6 +17,14 @@ module MicroApi
     def no_route_matches
       exception = ActionController::RoutingError.new("No route matches [#{request.method}] #{request.path}")
       render json: { error: exception.message }, status: :not_found
+    end
+
+    private
+
+    def app_version
+      Rails.application.class::VERSION
+    rescue StandardError
+      nil
     end
   end
 end
