@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.3](https://github.com/lelered/micro_api/compare/v0.1.2...v0.1.3) (2024-03-17)
+
+
+### Features
+
+* intro app version ([da5a549](https://github.com/lelered/micro_api/commit/da5a549d0d09bb50cb042a97b17b07af9e91d152))
+
+
+### Bug Fixes
+
+* rspec ([500bfdf](https://github.com/lelered/micro_api/commit/500bfdf48fba2445996690bf1dfe83b3e96da36c))
+* rubocop ([656141a](https://github.com/lelered/micro_api/commit/656141a845f8a38f4e4936d99a995167550fd552))
+
 ## [0.1.2](https://github.com/lelered/micro_api/compare/v0.1.1...v0.1.2) (2023-04-09)
 
 
