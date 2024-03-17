@@ -36,6 +36,19 @@ Or install it yourself as:
 $ gem install micro_api
 ```
 
+## Implementation
+
+### testing
+```bash
+docker run -ti --rm -v $(pwd):/app --workdir="/app" ruby:alpine sh
+apk add --update build-base libxml2-dev libxslt-dev git postgresql-dev postgresql-client
+bundle install
+gem update --system
+bundle exec rspec
+bundle exec rubocop
+bundle exec rubocop -A
+```
+
 ## Contributing
 Contribution directions go here.
 
