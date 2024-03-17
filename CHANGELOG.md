@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/lelered/micro_api/compare/v0.1.3...v0.1.4) (2024-03-17)
+
+
+### Features
+
+* release-please-action upgrade version 4 ([675db79](https://github.com/lelered/micro_api/commit/675db795ba955d58fe8d9b8fabab6a867fbc9f43))
+
 ## [0.1.3](https://github.com/lelered/micro_api/compare/v0.1.2...v0.1.3) (2024-03-17)
 
 
