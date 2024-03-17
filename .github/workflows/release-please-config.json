@@ -1,0 +1,11 @@
+{
+  "release-type": "ruby",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "packages": {
+    ".": {
+      "package-name": "micro_api",
+      "version-file": "lib/micro_api/version.rb"
+    }
+  }
+}
