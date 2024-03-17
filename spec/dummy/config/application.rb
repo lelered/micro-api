@@ -21,6 +21,8 @@ require "micro_api"
 
 module Dummy
   class Application < Rails::Application
+    VERSION = '1.2.3'.freeze
+
     config.load_defaults Rails::VERSION::STRING.to_f
 
     # Configuration for the application, engines, and railties goes here.

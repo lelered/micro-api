@@ -7,7 +7,8 @@ RSpec.describe "Statics" do
     it "returns http success", type: :request do
       expect(response).to have_http_status(:success)
       expect(response.header['Content-Type']).to include 'application/json'
-      expect(json.keys).to contain_exactly('ac', 'cenv', 'env', 'itag')
+      expect(json.keys).to contain_exactly('ac', 'cenv', 'env', 'itag', 'av')
+      expect(json['av']).to eq('1.2.3'.freeze)
     end
 
     it "routes /micro_api/version to the static controller", type: :routing do
