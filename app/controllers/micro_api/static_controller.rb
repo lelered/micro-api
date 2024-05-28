@@ -1,7 +1,10 @@
 module MicroApi
   class StaticController < ApplicationController
     def healthz
-      render json: { status: :ok }
+      render json: {
+        db: active_record_check,
+        status: :ok
+      }
     end
 
     def version
@@ -25,6 +28,16 @@ module MicroApi
       Rails.application.class::VERSION
     rescue StandardError
       nil
+    end
+
+    def active_record_check
+      return { status: :nd } unless defined?(ActiveRecord)
+
+      ActiveRecord::Base.establish_connection # Establishes connection
+      ActiveRecord::Base.connection           # Calls connection object
+      { status: ActiveRecord::Base.connected? ? :connected : :not_connected }
+    rescue StandardError
+      { status: :exception }
     end
   end
 end
