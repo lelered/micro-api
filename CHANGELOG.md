@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.5](https://github.com/lelered/micro_api/compare/v0.1.4...v0.1.5) (2024-05-28)
+
+
+### Features
+
+* db connection check on health api ([aeb3b91](https://github.com/lelered/micro_api/commit/aeb3b91226d4c50b536d382ff282eb789ee2bcd2))
+* dependabot.yml ([b18e38d](https://github.com/lelered/micro_api/commit/b18e38d65d0e64bce1ed36c1934ef95bef2d0681))
+
+
+### Bug Fixes
+
+* missing tzinfo-data gem ([f1ff725](https://github.com/lelered/micro_api/commit/f1ff725dba2f267a555e631258c4c652bed5427e))
+* single quotes ([ac412f1](https://github.com/lelered/micro_api/commit/ac412f13dd6c08aa579c0351642130a2338101b0))
+
 ## [0.1.4](https://github.com/lelered/micro_api/compare/v0.1.3...v0.1.4) (2024-03-17)
 
 
